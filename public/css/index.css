@@ -1,0 +1,17 @@
+#iphone {
+  width: 320px;
+  height: 504px;
+  background-color: #eee;
+  position: absolute;
+}
+
+#pages {
+  margin-left: 330px;
+}
+
+#wrap {
+  height: 504px;
+  position: relative;
+  margin: 0 auto;
+  overflow: hidden;
+}

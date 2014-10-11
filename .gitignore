@@ -1,0 +1,5 @@
+node_modules/
+sftp-config.json
+magazine.sublime-project
+magazine.sublime-workspace
+public/bower_components/

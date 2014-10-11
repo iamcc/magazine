@@ -1,0 +1,16 @@
+{
+  "name": "magazine",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^0.12.1",
+    "koa-body": "^0.2.0",
+    "koa-static": "^1.4.7"
+  }
+}

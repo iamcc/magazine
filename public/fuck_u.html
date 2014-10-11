@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bower_components/animate.css/animate.min.css">
+  <link rel="stylesheet" href="css/index.css">
+  <title></title>
+</head>
+<body>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a href="#" class="navbar-brand">Magazine</a>
+      </div>
+    </div>
+  </nav>
+  <div class="container" ng-controller="mainCtrl">
+    <div class="row">
+      <div class="col-sm-8">
+        <div id="iphone" ng-style="{backgroundColor: curPage.bgColor}" ng-class="curPage.animate">
+          <div id="wrap">
+            <div ng-repeat="item in curPage.items" cc-drag="item">
+            </div>
+          </div>
+        </div>
+
+        <div id="pages">
+          <div class="list-group">
+            <a href="#" class="list-group-item clearfix" ng-repeat="page in pages" ng-click="selectPage($index, page)">
+              {{ page.title }}
+              <span class="pull-right">
+                <button class="btn btn-link btn-xs" ng-click="move($index, -1)" ng-disabled="$first">&uarr;</button>
+                <button class="btn btn-link btn-xs" ng-click="move($index, 1)" ng-disabled="$last">&darr;</button>
+                <button class="btn btn-danger btn-xs" ng-click="delPage($index)">&times;</button>
+              </span>
+            </a>
+          </div>
+          <button class="btn btn-link pull-right" ng-click="saveList()">Save</button>
+          <button class="btn btn-link pull-right" ng-click="newPage()">New Page</button>
+        </div>
+
+      </div>
+
+      <div class="col-sm-4">
+        <form>
+          <div class="form-group">
+            <label for="">Page Title</label>
+            <input type="text" class="form-control" ng-model="curPage.title">
+          </div>
+
+          <div class="form-group">
+            <label for="">Background Color</label>
+            <input type="color" class="form-control" ng-model="curPage.bgColor">
+          </div>
+
+          <div class="list-group">
+            <a href="#" class="list-group-item" ng-repeat="item in curPage.items" ng-click="editItem($index, item)">
+              <button class="btn btn-danger btn-xs pull-right" ng-click="delItem($index)">&times;</button>
+              <span class="label" ng-class="{
+                'label-default': item.type=='text',
+                'label-info': item.type=='image',
+                'label-primary': item.type=='video',
+                'label-warning': item.type=='link'
+              }">{{ item.type }}</span> {{ item.name }}
+            </a>
+          </div>
+
+          <button class="btn btn-link pull-right" ng-click="savePage()" ng-disabled="!curPage">Save</button>
+          <div class="btn-group" dropdown is-open="status.isopen">
+            <button type="button" class="btn btn-link dropdown-toggle" ng-disabled="!curPage">
+              New Item <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#" ng-click="newText()">Text</a></li>
+              <li><a href="#" ng-click="newImage()">Image</a></li>
+              <li><a href="#" ng-click="newVideo()">Video</a></li>
+              <li><a href="#" ng-click="newLink()">Link</a></li>
+            </ul>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="bower_components/zepto/zepto.min.js"></script>
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+  <script src="bower_components/velocity/velocity.min.js"></script>
+  <script src="bower_components/velocity/velocity.ui.min.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>

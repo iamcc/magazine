@@ -1,0 +1,31 @@
+<div class="modal-body">
+  <form class="form-horizontal">
+    <div base-setting ng-model="item"></div>
+    
+    <div class="row">
+      <div class="form-group col-sm-12">
+        <label class="control-label col-sm-2">图片URL</label>
+        <div class="col-sm-10">
+          <input type="url" class="form-control" ng-model="item.src">
+        </div>
+      </div>
+
+      <div class="form-group col-sm-12">
+        <label class="control-label col-sm-2">大小</label>
+        <div class="col-sm-10">
+          <div class="input-group">
+            <span class="input-group-addon">宽度</span>
+            <input type="text" class="form-control" ng-model="item.w">
+            <span class="input-group-addon">%</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </form>
+</div>
+
+<div class="modal-footer">
+  <button class="btn btn-primary" ng-click="ok()">Save</button>
+  <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>

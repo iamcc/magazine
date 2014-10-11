@@ -1,0 +1,50 @@
+<div class="modal-body">
+  <form class="form-horizontal">
+    <div base-setting ng-model="item"></div>
+    
+    <div class="row">
+      <div class="form-group col-sm-12">
+        <label class="control-label col-sm-2">文字</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" ng-model="item.text">
+        </div>
+      </div>
+
+      <div class="form-group col-sm-12">
+        <label class="control-label col-sm-2">样式</label>
+        <div class="col-sm-2">
+          <div class="radio">
+            <label>
+              <input type="radio" name="styleRadio" value="" ng-model="item.font.style"> None
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="styleRadio" value="bold" ng-model="item.font.style"> Bold
+            </label>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="input-group">
+            <span class="input-group-addon">文字</span>
+            <input type="color" class="form-control" ng-model="item.font.color">
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon">背景</span>
+            <input type="color" class="form-control" ng-model="item.font.bgColor">
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="input-group">
+            <input type="number" class="form-control" ng-model="item.font.size">
+            <span class="input-group-addon">px</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary" ng-click="ok()">Save</button>
+  <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+</div>
